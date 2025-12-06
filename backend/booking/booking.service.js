@@ -5,7 +5,7 @@ const bookingRepo = require('./booking.repo');
 async function createBooking(bookingDetails) {
   try {
     // 1. Insert booking into DB
-    const result = await bookingRepo.book(bookingDetails);
+    const result = await bookingRepo.createBooking(bookingDetails);
 
     // 2. Prepare mail payload
     const mailPayload = {

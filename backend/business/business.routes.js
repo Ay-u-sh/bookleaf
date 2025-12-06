@@ -6,7 +6,7 @@ router.post('/register',async (req,res)=>{
     const payload = req.body;
     const result = await businessService.registerBusiness(payload);
     res.cookie('business',result);
-    await businessVerificationService.sendVerificationMail(result);
+    await businessService.sendBusinessVerificationEmail(result);
     res.status(200).json({message:'success'});
 })
 
@@ -18,6 +18,7 @@ router.get('/verify',async(req,res)=>{
 
 router.post('/generate-booking-link',async(req,res)=>{
     const business = req.cookies.business;
+    console.log(business);
     const result = await businessService.createBookingLinkForBusiness(business);
     return res.status(200).json(result);
 

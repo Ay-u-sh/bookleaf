@@ -118,4 +118,5 @@
    ********************************************************/
   @media (max-width: 520px) {
     .animated-line { height: 40px; }
+    .word{width: 250px;}
   }

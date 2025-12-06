@@ -7,14 +7,13 @@ export function useBookingForm(){
     const [timeSlots,setTimeSlot] = useState([]);
     const [error,setError] = useState('')
     useEffect(()=>{
-        fetch(`/business/${businessId}`)
+        fetch(`/api/business/${businessId}`)
         .then(res=>res.json())
         .then(data=>{
             if(data.ok){
                 setBusiness(data.data);
-                const slots = generateTimeSlots(data.data.opening_time,data.data.closing_time,data.data.appointment_duration.minutes );
-                setTimeSlot(slots);
-                
+                const slots = generateTimeSlots(data.data.opening_time,data.data.closing_time,data.data.appointment_duration.minutes);
+                setTimeSlot(slots); 
             }
         })
         .catch(error=>{
@@ -71,7 +70,7 @@ export function useBookingForm(){
                    ...formData
                 }
               
-                const response = await fetch('/book',{
+                const response = await fetch('/api/book',{
                     method: 'POST',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify(bookingData)

@@ -14,7 +14,7 @@ function VerificationPage() {
     }
 
     // Call backend verify API
-    fetch(`/verify?token=${token}`)
+    fetch(`/api/verify?token=${token}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.status !== 200) {
@@ -24,7 +24,7 @@ function VerificationPage() {
           else if (data.reason === "Token already used") setStatus("already_used");
           else setStatus("error");
         } else {
-            fetch('/generate-booking-link',{method:'POST',credentials:'include'})
+            fetch('/api/generate-booking-link',{method:'POST',credentials:'include'})
             .then(res=>res.json())
             .then(data=>{
                 if(!data.ok)
@@ -34,7 +34,6 @@ function VerificationPage() {
                     setStatus("success");
                 }
             })
-            // setStatus("success");
         }
       })
       .catch(() => setStatus("error"));
@@ -71,7 +70,7 @@ function VerificationPage() {
               <span className="input-icon">link</span>
               <input
                 type="text"
-                value={bookingLink}
+                value={(status === "success" && bookingLink) ?bookingLink:''}
                 readOnly
                 onClick={(e) => e.target.select()}
               />

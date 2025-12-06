@@ -33,62 +33,90 @@ async function sendBusinessVerificationMail(mailData){
 
 async function sendBookingDetailsMail(mailData){
   const businessHtml = `
-  <div style="margin:0;padding:0;background:#f8fafc;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
-    <div style="max-width:520px;margin:24px auto;padding:20px;background:#ffffff;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 6px 22px rgba(15,23,42,0.06);">
-      
+  <div style="margin:0;padding:0;background:#faf7f4;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+    <div style="max-width:540px;margin:24px auto;padding:0 16px;">
+
       <!-- Brand header -->
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
         <div style="display:flex;align-items:center;gap:8px;">
-          <div style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,#5d00ff,#7b2eff);display:flex;align-items:center;justify-content:center;color:#ffffff;font-size:16px;font-weight:700;">
+          <div style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,#7b2eff,#8f3eff);display:flex;align-items:center;justify-content:center;color:#ffffff;font-size:16px;font-weight:700;">
             B
           </div>
           <div>
-            <div style="font-size:16px;font-weight:600;color:#0f172a;">BookLeaf</div>
+            <div style="font-size:16px;font-weight:600;color:#0f172a;letter-spacing:-0.03em;">BookLeaf</div>
             <div style="font-size:12px;color:#6b7280;">New booking received</div>
           </div>
         </div>
-        <span style="font-size:12px;color:#9ca3af;">${new Date().toLocaleString()}</span>
+        <span style="font-size:11px;color:#9ca3af;">${new Date().toLocaleString()}</span>
       </div>
 
-      <h2 style="font-size:18px;margin:0 0 12px;color:#0f172a;">New Booking Received</h2>
-      <p style="margin:0 0 16px;color:#4b5563;font-size:14px;">
-        You’ve received a new booking via your BookMate page.
-      </p>
+      <!-- Main card -->
+      <div style="
+        background:#ffffff;
+        border-radius:14px;
+        border:1px solid rgba(15,23,42,0.06);
+        box-shadow:0 12px 30px rgba(15,23,42,0.05);
+        padding:18px 18px 16px 18px;
+      ">
 
-      <!-- Booking details -->
-      <div style="border-radius:10px;border:1px solid #e5e7eb;background:#f9fafb;padding:12px 14px;margin-bottom:16px;">
-        <div style="margin-bottom:8px;">
-          <span style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:0.04em;font-weight:600;">Customer</span>
+        <h2 style="font-size:18px;margin:0 0 6px;color:#0f172a;letter-spacing:-0.02em;">
+          New booking received
+        </h2>
+
+        <p style="margin:0 0 16px;color:#4b5563;font-size:14px;line-height:1.6;">
+          You’ve received a new booking via your BookLeaf page. Here are the details:
+        </p>
+
+        <!-- Customer -->
+        <div style="padding-top:10px;padding-bottom:10px;border-top:1px solid rgba(148,163,184,0.25);">
+          <div style="font-size:12px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:4px;">
+            Customer
+          </div>
+          <p style="margin:0 0 2px;font-size:14px;color:#0f172a;">
+            <strong>${mailData.customer_name}</strong>
+          </p>
+          <p style="margin:0 0 2px;font-size:13px;color:#4b5563;">
+            ${mailData.customer_email}
+          </p>
+          <p style="margin:0;font-size:13px;color:#4b5563;">
+            ${mailData.customer_phone}
+          </p>
         </div>
-        <p style="margin:0 0 4px;font-size:14px;color:#0f172a;"><strong>Name:</strong> ${mailData.customer_name}</p>
-        <p style="margin:0 0 4px;font-size:14px;color:#0f172a;"><strong>Email:</strong> ${mailData.customer_email}</p>
-        <p style="margin:0 0 4px;font-size:14px;color:#0f172a;"><strong>Phone:</strong> ${mailData.customer_phone}</p>
-      </div>
 
-      <div style="border-radius:10px;border:1px solid #e5e7eb;background:#f9fafb;padding:12px 14px;margin-bottom:16px;">
-        <div style="margin-bottom:8px;">
-          <span style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:0.04em;font-weight:600;">Appointment</span>
+        <!-- Appointment -->
+        <div style="padding-top:10px;padding-bottom:10px;border-top:1px solid rgba(148,163,184,0.25);">
+          <div style="font-size:12px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:4px;">
+            Appointment
+          </div>
+          <p style="margin:0 0 2px;font-size:13px;color:#0f172a;">
+            <strong>Date:</strong> ${mailData.booked_date}
+          </p>
+          <p style="margin:0;font-size:13px;color:#0f172a;">
+            <strong>Time:</strong> ${mailData.booked_time}
+          </p>
         </div>
-        <p style="margin:0 0 4px;font-size:14px;color:#0f172a;"><strong>Date:</strong> ${mailData.booked_date}</p>
-        <p style="margin:0;font-size:14px;color:#0f172a;"><strong>Time:</strong> ${mailData.booked_time}</p>
-      </div>
 
-      <div style="border-radius:10px;border:1px dashed #e5e7eb;background:#fefce8;padding:12px 14px;margin-bottom:20px;">
-        <p style="margin:0 0 4px;font-size:13px;color:#4b5563;font-weight:600;">Customer message</p>
-        <p style="margin:0;font-size:13px;color:#4b5563;">
-          ${mailData.message || "No message was provided for this booking."}
+        <!-- Message -->
+        <div style="padding-top:10px;padding-bottom:10px;border-top:1px solid rgba(148,163,184,0.25);">
+          <div style="font-size:12px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:4px;">
+            Message
+          </div>
+          <p style="margin:0;font-size:13px;color:#4b5563;line-height:1.6;white-space:pre-line;">
+            ${mailData.message || "No message was provided for this booking."}
+          </p>
+        </div>
+
+        <p style="margin:10px 0 2px;font-size:12px;color:#6b7280;">
+          You can reply directly to this email to contact the customer.
+        </p>
+        <p style="margin:0;font-size:11px;color:#9ca3af;">
+          Sent automatically from <strong>BookLeaf</strong>.
         </p>
       </div>
-
-      <p style="margin:0 0 4px;font-size:12px;color:#9ca3af;">
-        This email was automatically generated by <strong>BookMate</strong>.
-      </p>
-      <p style="margin:0;font-size:12px;color:#9ca3af;">
-        You can reply directly to this email to contact the customer.
-      </p>
     </div>
   </div>
 `;
+
 
 const businessMail = {
   from: process.env.SMTP_USER,
@@ -98,66 +126,97 @@ const businessMail = {
 };
 
 const customerHtml = `
-  <div style="margin:0;padding:0;background:#f8fafc;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
-    <div style="max-width:520px;margin:24px auto;padding:20px;background:#ffffff;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 6px 22px rgba(15,23,42,0.06);">
-      
+  <div style="margin:0;padding:0;background:#faf7f4;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+    <div style="max-width:540px;margin:24px auto;padding:0 16px;">
+
       <!-- Brand header -->
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-        <div style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,#5d00ff,#7b2eff);display:flex;align-items:center;justify-content:center;color:#ffffff;font-size:16px;font-weight:700;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;">
+        <div style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,#7b2eff,#8f3eff);display:flex;align-items:center;justify-content:center;color:#ffffff;font-size:16px;font-weight:700;">
           B
         </div>
         <div>
-          <div style="font-size:16px;font-weight:600;color:#0f172a;">BookLeaf</div>
+          <div style="font-size:16px;font-weight:600;color:#0f172a;letter-spacing:-0.03em;">BookLeaf</div>
           <div style="font-size:12px;color:#6b7280;">Your booking has been received</div>
         </div>
       </div>
 
-      <h2 style="font-size:18px;margin:0 0 10px;color:#0f172a;">We’ve received your booking</h2>
+      <!-- Main card -->
+      <div style="
+        background:#ffffff;
+        border-radius:14px;
+        border:1px solid rgba(15,23,42,0.06);
+        box-shadow:0 12px 30px rgba(15,23,42,0.05);
+        padding:20px;
+      ">
 
-      <p style="margin:0 0 10px;font-size:14px;color:#4b5563;">
-        Hi <strong>${mailData.customer_name}</strong>,
-      </p>
+        <h2 style="font-size:18px;margin:0 0 6px;color:#0f172a;letter-spacing:-0.02em;">
+          Your booking is confirmed
+        </h2>
 
-      <p style="margin:0 0 16px;font-size:14px;color:#4b5563;">
-        Thank you for booking an appointment with <strong>${mailData.business_name}</strong>.
-        Here are your booking details:
-      </p>
-
-      <div style="border-radius:10px;border:1px solid #e5e7eb;background:#f9fafb;padding:12px 14px;margin-bottom:16px;">
-        <p style="margin:0 0 4px;font-size:14px;color:#0f172a;">
-          <strong>Date:</strong> ${mailData.booked_date}
+        <p style="margin:0 0 12px;font-size:14px;color:#4b5563;line-height:1.6;">
+          Hi <strong>${mailData.customer_name}</strong>,
         </p>
-        <p style="margin:0 0 4px;font-size:14px;color:#0f172a;">
-          <strong>Start Time:</strong> ${mailData.start_at}
+
+        <p style="margin:0 0 20px;font-size:14px;color:#4b5563;line-height:1.6;">
+          Thank you for booking an appointment with <strong>${mailData.business_name}</strong>.
+          Here are your appointment details:
         </p>
-        <p style="margin:0;font-size:14px;color:#0f172a;">
-          <strong>End Time:</strong> ${mailData.end_at}
+
+        <!-- Appointment section -->
+        <div style="padding-top:10px;padding-bottom:10px;border-top:1px solid rgba(148,163,184,0.25);">
+          <div style="font-size:12px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:6px;">
+            Appointment Details
+          </div>
+
+          <p style="margin:0 0 4px;font-size:14px;color:#0f172a;">
+            <strong>Date:</strong> ${mailData.booked_date}
+          </p>
+
+          <p style="margin:0 0 4px;font-size:14px;color:#0f172a;">
+            <strong>Start Time:</strong> ${mailData.start_at}
+          </p>
+
+          <p style="margin:0;font-size:14px;color:#0f172a;">
+            <strong>End Time:</strong> ${mailData.end_at}
+          </p>
+        </div>
+
+        <!-- Message section (optional) -->
+        ${
+          mailData.message
+            ? `
+          <div style="padding-top:10px;padding-bottom:10px;border-top:1px solid rgba(148,163,184,0.25);">
+            <div style="font-size:12px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:6px;">
+              Your Message
+            </div>
+
+            <p style="margin:0;font-size:13px;color:#4b5563;line-height:1.6;white-space:pre-line;">
+              ${mailData.message}
+            </p>
+          </div>
+          `
+            : ""
+        }
+
+        <!-- Footer -->
+        <p style="margin:12px 0 4px;font-size:13px;color:#6b7280;line-height:1.6;">
+          If you need to change or cancel your booking, please contact
+          <strong>${mailData.business_name}</strong> directly.
+        </p>
+
+        <p style="margin:0;font-size:12px;color:#9ca3af;">
+          Powered by <strong>BookLeaf</strong>.
         </p>
       </div>
-
-      <p style="margin:0 0 10px;font-size:14px;color:#4b5563;">
-        If you need to change or cancel your booking, please contact
-        <strong>${mailData.business_name}</strong> directly.
-      </p>
-
-      <p style="margin:0 0 18px;font-size:14px;color:#4b5563;">
-        We’ll let you know if anything changes.
-      </p>
-
-      <p style="margin:0 0 4px;font-size:12px;color:#9ca3af;">
-        Thank you for choosing <strong>${mailData.business_name}</strong>.
-      </p>
-      <p style="margin:0;font-size:12px;color:#9ca3af;">
-        Powered by <strong>BookMate</strong>.
-      </p>
     </div>
   </div>
 `;
 
+
 const customerMail = {
   from: process.env.SMTP_USER,
   to: mailData.customer_email,
-  subject: "Your booking has been received – BookMate",
+  subject: "Your booking has been received – bookleaf",
   html: customerHtml,
 };
 

@@ -34,6 +34,7 @@ async function insertBusiness(business) {
     const result = await pool.query(query, values);
     return result.rows[0];
   } catch (error) {
+    console.log(error)
     const mappedError = mapPgError(error);
     throw mappedError instanceof Error ? mappedError : new Error("Database Error");
   }

@@ -21,4 +21,5 @@ const pool = new Pool({
     idleTimeoutMillis: 30000,
     max: 5
   });
+  
 module.exports = pool;

@@ -43,7 +43,7 @@ export function useBusinessRegistrationForm(initial){
         setSubmitting(true);
         for(let attempt = 1;attempt<=retries;attempt++){
             try{
-                const response = await fetch('/register',{
+                const response = await fetch('/api/register',{
                     method:'POST',
                     headers:{'Content-Type':'application/json'},
                     credentials:'include',
@@ -51,7 +51,7 @@ export function useBusinessRegistrationForm(initial){
                 })
                 if(response.ok){
                     setSubmitting(false);
-                    navigate('/verifyrequest')
+                    navigate('/verify-request')
                     break;
                 }
             }

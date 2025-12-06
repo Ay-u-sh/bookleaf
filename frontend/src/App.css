@@ -70,3 +70,14 @@ body {
    background: var(--bg-page);
  }
   
+ /* button base */
+.btn{
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 15px;
+  min-height: 44px;
+  transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+}

@@ -1,0 +1,130 @@
+
+/* Root layout */
+.booking-received-page {
+  min-height: 76vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 72px 20px;
+  box-sizing: border-box;
+}
+
+/* Centered shell, left-aligned content */
+.booking-received-shell {
+  width: 100%;
+  max-width: var(--shell-width);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* Icon */
+.booking-received-visual {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.br-check {
+  width: 72px;
+  height: 72px;
+  color: var(--accent1);
+}
+
+.br-tick {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: brDrawTick 520ms ease-out 180ms forwards;
+  opacity: 0;
+}
+
+/* Body */
+.booking-received-body {
+  text-align: left;
+}
+
+.booking-received-title {
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+.booking-received-sub {
+  margin: 0 0 12px 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.booking-received-text {
+  margin: 0 0 20px 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Actions */
+.booking-received-actions {
+  display: flex;
+  flex-direction:column;
+  justify-content:center ;
+  margin-bottom: 14px;
+  gap:13px;
+}
+
+/* Primary button */
+.br-primary,.br-ghost {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: #fff;
+  box-shadow: 0 12px 34px rgba(123, 46, 255, 0.12);
+}
+
+.br-primary:hover,.br-ghost:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(123, 46, 255, 0.16);
+}
+
+
+/* Hint */
+.booking-received-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Side-by-side buttons on larger screens */
+@media (min-width: 680px) {
+  
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .br-tick {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* Tick animation */
+@keyframes brDrawTick {
+  0% {
+    stroke-dashoffset: 40;
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  60% {
+    stroke-dashoffset: 8;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}

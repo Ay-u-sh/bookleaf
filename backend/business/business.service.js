@@ -46,13 +46,10 @@ async function sendBusinessVerificationEmail(business) {
     Date.now() + expiryHours * 60 * 60 * 1000
   ).toISOString();
 
-  const tokenId = await tokenRepo.storeToken(tokenHash, business.id, expiresAt);
+  const tokenId = await businessTokenRepo.storeToken(tokenHash, business.id, expiresAt);
 
   const base = process.env.PUBLIC_BASE_URL;
-  const verificationLink = `${base.replace(
-    /\/$/,
-    ""
-  )}/verify?token=${rawToken}`;
+  const verificationLink = `${base}/verify?token=${rawToken}`;
 
   const mailData = {
     ...business,
@@ -68,7 +65,7 @@ async function verifyBusinessFromToken(rawToken) {
   if (!rawToken) return "missing token";
 
   const tokenHash = hashToken(rawToken);
-  return await tokenRepo.verifyToken(tokenHash);
+  return await businessTokenRepo.verifyToken(tokenHash);
 }
 
 module.exports = {

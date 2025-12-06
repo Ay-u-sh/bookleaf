@@ -26,7 +26,6 @@ async function verifyToken(tokenHash){
             return 'Invalid or already used token';
 
         const resultRows = result.rows[0];
-        console.log(resultRows.used);
 
         if(resultRows.expires_at){
             const expiryDate = new Date(resultRows.expires_at);
@@ -39,7 +38,7 @@ async function verifyToken(tokenHash){
         if(resultRows.used)
             return {ok:false,reason:'already used'};
     
-        await pool.query('BEGIN');
+        await pool.query('BEGIN');// no need of business id
         const tokenQuery = `UPDATE business_tokens SET used = true WHERE id = $1`;
         const tokenQueryValues = [resultRows.id]
 
