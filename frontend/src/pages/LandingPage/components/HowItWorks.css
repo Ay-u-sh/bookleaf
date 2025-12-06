@@ -1,0 +1,168 @@
+/* ============================================================
+   HOW IT WORKS SECTION — Purple Theme (Isolated)
+   File: howItWorks.css
+   ============================================================ */
+
+   :root {
+    --hw-text: #0f172a;
+    --hw-muted: #6b7280;
+  
+    /* your purple theme */
+    --hw-accent1: #7b2eff;
+    --hw-accent2: #8f3eff;
+  
+    --hw-card-bg: #ffffff;
+    --hw-card-border: rgba(123,46,255,0.12);
+    --hw-card-shadow: rgba(123,46,255,0.06);
+  
+    --hw-max-width: 1100px;
+  }
+  
+  /* -----------------------------
+     SECTION WRAPPER
+     ----------------------------- */
+  .howitworks {
+    padding: 56px 20px;
+    color: var(--hw-text);
+  }
+  
+  /* container */
+  .howitworks-inner {
+    max-width: var(--hw-max-width);
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 18px;
+  }
+  
+  /* -----------------------------
+     TITLE + SUBTITLE
+     ----------------------------- */
+  .howitworks-title {
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 10px;
+    display: inline-block;
+    position: relative;
+    color: var(--hw-text);
+    padding-bottom: 10px;
+  }
+  
+  .howitworks-sub {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15px;
+    color: var(--hw-muted);
+    max-width: 620px;
+    margin: 0 auto 32px auto;
+  }
+  
+  /* -----------------------------
+     3-STEP GRID
+     ----------------------------- */
+  .howitworks-steps {
+    margin-top:70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  /* individual step card */
+  .howitworks-step {
+    background: var(--hw-card-bg);
+    border: 1px solid var(--hw-card-border);
+    border-radius: 14px;
+    padding: 22px;
+    text-align: left;
+    box-shadow: 0 12px 40px var(--hw-card-shadow);
+  
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  
+    opacity: 0;
+    transform: translateY(8px);
+    animation: hw-fade-up 700ms ease forwards;
+  }
+  
+  /* stagger animation */
+  .howitworks-step:nth-child(1) { animation-delay: 140ms; }
+  .howitworks-step:nth-child(2) { animation-delay: 240ms; }
+  .howitworks-step:nth-child(3) { animation-delay: 340ms; }
+  
+  /* hover lift */
+  .howitworks-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(123,46,255,0.1);
+  }
+  
+  /* -----------------------------
+     ICON WRAPPER (purple accent)
+     ----------------------------- */
+  .hw-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+  
+    border-radius: 12px;
+    background: linear-gradient(
+      180deg,
+      rgba(123,46,255,0.16),
+      rgba(143,62,255,0.08)
+    );
+    color: var(--hw-accent1);
+  }
+  
+  /* -----------------------------
+     TITLES + DESCRIPTION
+     ----------------------------- */
+  .hw-step-title {
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    color: var(--hw-text);
+  }
+  
+  .hw-step-desc {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    color: var(--hw-muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  
+  /* -----------------------------
+     RESPONSIVE
+     ----------------------------- */
+  @media (max-width: 880px) {
+    .howitworks-steps {
+      grid-template-columns: 1fr;
+    }
+    .howitworks-step {
+      text-align: left;
+    }
+  }
+  
+  /* -----------------------------
+     ANIMATIONS
+     ----------------------------- */
+  @keyframes hw-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .howitworks-step {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }

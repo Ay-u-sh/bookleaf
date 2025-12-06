@@ -1,0 +1,117 @@
+/* Page root */
+.about-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  padding: 56px var(--pad);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Container */
+.about-container {
+  width: 100%;
+  max-width: var(--container-max);
+}
+
+/* Header (title + lead) — left aligned */
+.about-header {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.about-title {
+  font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(28px, 4vw, 36px);
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+
+.about-lead {
+  color: var(--muted);
+  margin: 0 0 20px 0;
+  font-size: 16px;
+}
+
+/* Generic section wrapper */
+.about-section {
+  margin-bottom: 22px;
+  padding-left: 6px;
+}
+
+/* Section title has subtle purple underline and small left accent bar */
+/* ---------- improved section title (no heavy underline) ---------- */
+/* Replace existing .section-title, ::before and ::after rules with this block */
+
+.section-title {
+    font-size: 18px;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 0;          /* remove extra left padding */
+  }
+  
+  /* small left accent dot / short bar — subtle brand touch */
+  .section-title::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    display: inline-block;
+    flex: 0 0 auto;
+    opacity: 0.98;
+    transform: translateY(0); /* vertically aligned with text */
+  }
+  
+  /* remove the long underline (was making it look like a blog) */
+  .section-title::after {
+    content: none;
+  }
+  
+
+/* body text */
+.section-body {
+  color: var(--text);
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Contact row */
+.contact-row {
+  margin-top: 12px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.contact-link {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+/* remove boxed background look on content (no white card) */
+/* no card, no shadow — page feels integrated with landing */
+
+/* small screens */
+@media (max-width: 720px) {
+  .about-page { padding: 36px 18px; }
+  .about-title { font-size: 22px; }
+  .section-title::after { width: 52px; }
+  .section-title::before { height: calc(100% - 6px); top: 8px; }
+}

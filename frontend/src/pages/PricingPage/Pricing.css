@@ -1,0 +1,100 @@
+/* -------- PRICING PAGE WRAPPER -------- */
+
+.pricing-page {
+  padding: 48px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hero Section */
+
+.pricing-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pricing-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.pricing-sub {
+  margin-top: 8px;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Grid wrapper */
+
+.pricing-grid {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+/* -------- THE CARD (OPTION B LAYOUT) -------- */
+
+.pricing-card {
+  min-height: 480px;
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* PRICE TEXT => PURPLE */
+.price-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7a3cff; /* purple */
+  margin: 0;
+}
+
+/* Body in the middle */
+.card-body {
+  flex: 1;
+  margin: 20px 0;
+  overflow-y: auto;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-item {
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: #555;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Bottom CTA */
+.card-actions {
+  margin-top: 16px;
+}
+
+/* -------- PURPLE BUTTON + FLOAT-UP EFFECT -------- */

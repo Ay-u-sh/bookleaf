@@ -1,0 +1,108 @@
+/* ===============================
+   NAVBAR – clean SaaS style
+   =============================== */
+   /* Base navbar wrapper */
+   .navbar {
+     width: 100%;
+     padding: 15px;
+     background: transparent;
+     position: relative;
+     z-index: 50;
+     font-family: "Plus Jakarta Sans", sans-serif;
+   }
+   
+   /* Layout container */
+   .navbar-container {
+     width:100%;
+     padding-left: var(--navbar-padding);
+     padding-right: 25px;
+   
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+   
+   /* ===============================
+      BRAND (left)
+      =============================== */
+   .navbar-brand {
+     font-family: "Manrope", sans-serif;
+     font-weight: 700;
+     font-size: 20px;
+     letter-spacing: -0.3px;
+     color: var(--text);
+     text-decoration: none;
+     padding: 4px 8px;
+   }
+   
+   /* ===============================
+      NAV LINKS (right)
+      =============================== */
+   .navbar-links {
+     display: flex;
+     align-items: center;
+     gap: 14px;
+   }
+   
+   /* Basic link */
+   .nav-link {
+     text-decoration: none;
+     font-size: 14px;
+     color: var(--text);
+     padding: 8px 10px;
+     border-radius: 10px;
+     transition: 0.15s ease;
+   }
+   
+   .nav-link:hover {
+     opacity: 0.85;
+     transform: translateY(-1px);
+   }
+   
+   /* Subtle ghost pill */
+   .nav-ghost {
+     border: 1px solid rgba(0,0,0,0.06);
+     background: rgba(255,255,255,0.6);
+     padding: 8px 12px;
+     border-radius: 12px;
+   }
+   
+   /* CTA button */
+   .nav-cta {
+     text-decoration: none;
+     color: #fff;
+     font-weight: 600;
+     font-size: 14px;
+   
+     padding: 8px 16px;
+     border-radius: 999px;
+   
+     background: linear-gradient(90deg, var(--accent1), var(--accent2));
+     box-shadow: 0 8px 28px rgba(124,46,255,0.18);
+   
+     transition: 0.2s ease;
+   }
+   
+   .nav-cta:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 12px 40px rgba(124,46,255,0.22);
+   }
+   
+   /* ===============================
+      RESPONSIVE
+      =============================== */
+   @media (max-width: 720px) {
+     .navbar-links {
+       display: none; /* hide links — ready for hamburger menu */
+     }
+   
+     .navbar {
+       padding: 14px 0;
+     }
+   
+     .navbar-container {
+       padding-left: 18px;
+       padding-right: 18px;
+     }
+   }
+   

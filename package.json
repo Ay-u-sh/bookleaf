@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-phone-input-2": "^2.15.1",
+    "react-timezone-select": "^3.2.8"
+  }
+}

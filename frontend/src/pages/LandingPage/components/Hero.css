@@ -1,0 +1,121 @@
+/****************************************************
+ * HERO — now centered WITHIN same grid as header
+ ****************************************************/
+ .landing-hero {
+    text-align: center;
+    padding: 80px 20px;
+
+  }
+  
+/********************************************************
+ * MAIN TITLE
+ ********************************************************/
+.hero-title {
+    font-family: 'Chivo', sans-serif ;
+  
+    font-weight: 700;
+    font-size: var(--title-size);
+    color: var(--text);
+    letter-spacing: -0.8px;
+    line-height: 1.05;
+  }
+  
+  
+  /********************************************************
+   * ANIMATED PHRASES — non-overlapping, smooth fading
+   ********************************************************/
+   .animated-line {
+    position: relative;
+    height: 48px; /* keep your chosen height */
+    margin-bottom: 26px;
+    overflow: hidden;
+  }
+  
+  /* Each phrase (fixed initial state to match first keyframe) */
+  .word {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: auto;                 /* let text size itself; prevents overflow artifacts */
+    max-width: 100%;
+    transform: translateX(-50%) translateY(20px); /* SAME as 0% keyframe */
+    opacity: 0;                  /* SAME as 0% keyframe */
+    text-align: center;          /* center text inside its box */
+  
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: var(--anim-size);
+    letter-spacing: -0.3px;
+    color: var(--accent1);
+  
+    pointer-events: none;
+    will-change: transform, opacity;
+  
+    /* IMPORTANT: ensure the element uses the animation's initial frame immediately */
+    animation: fadeCycle 8s ease-in-out infinite both;
+  }
+  
+  /* stagger timing */
+  .word:nth-child(1) { animation-delay: 0s; }
+  .word:nth-child(2) { animation-delay: 2s; }
+  .word:nth-child(3) { animation-delay: 4s; }
+  .word:nth-child(4) { animation-delay: 6s; }
+  
+  /* keep keyframes as you had them */
+  @keyframes fadeCycle {
+    0%   { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    10%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+    25%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+    35%  { opacity: 0; transform: translateX(-50%) translateY(-14px); }
+    100% { opacity: 0; }
+  }
+  
+  /* optional: if you prefer to avoid tiny overlaps between words, increase the cycle time or reduce visible ranges */
+  
+  
+  
+  /********************************************************
+   * SUBTEXT
+   ********************************************************/
+  .hero-description {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: var(--desc-size);
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 0 auto 32px auto;
+  }
+  
+  
+  /********************************************************
+   * CTA BUTTON
+   ********************************************************/
+  .cta-primary {
+    display: inline-block;
+    padding: 15px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+  
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    color: #fff;
+  
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+    font-size: var(--cta-size);
+  
+    box-shadow: 0 14px 34px rgba(124, 46, 255, 0.22);
+    transition: 0.25s ease;
+  }
+  
+  .cta-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(124, 46, 255, 0.28);
+  }
+  
+  
+  /********************************************************
+   * MOBILE TWEAKS
+   ********************************************************/
+  @media (max-width: 520px) {
+    .animated-line { height: 40px; }
+  }
