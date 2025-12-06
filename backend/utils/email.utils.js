@@ -43,7 +43,7 @@ async function sendBookingDetailsMail(mailData){
             B
           </div>
           <div>
-            <div style="font-size:16px;font-weight:600;color:#0f172a;">Booklify</div>
+            <div style="font-size:16px;font-weight:600;color:#0f172a;">BookLeaf</div>
             <div style="font-size:12px;color:#6b7280;">New booking received</div>
           </div>
         </div>
@@ -93,7 +93,7 @@ async function sendBookingDetailsMail(mailData){
 const businessMail = {
   from: process.env.SMTP_USER,
   to: mailData.business_email,
-  subject: "New Booking via BookMate",
+  subject: "New Booking via BookLeaf",
   html: businessHtml,
 };
 
@@ -107,7 +107,7 @@ const customerHtml = `
           B
         </div>
         <div>
-          <div style="font-size:16px;font-weight:600;color:#0f172a;">Booklify</div>
+          <div style="font-size:16px;font-weight:600;color:#0f172a;">BookLeaf</div>
           <div style="font-size:12px;color:#6b7280;">Your booking has been received</div>
         </div>
       </div>

@@ -9,7 +9,7 @@ export default function Navbar() {
 
         {/* Left : Brand */}
         <NavLink to="/" className="navbar-brand">
-          Booklify
+          BookLeaf
         </NavLink>
 
         {/* Right : Nav links */}

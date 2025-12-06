@@ -7,7 +7,7 @@ export default function HowItWorks() {
       <div className="howitworks-inner container">
 
         <h2 id="howitworks-heading" className="howitworks-title">
-          How Booklify works — 3 easy steps
+          How BookLeaf works — 3 easy steps
         </h2>
 
         <p className="howitworks-sub">

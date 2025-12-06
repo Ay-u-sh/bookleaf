@@ -57,7 +57,7 @@ export default function FeatureHighlights() {
     <section className="fh-root" aria-labelledby="fh-heading">
       <div className="fh-inner container">
         <div className="fh-header">
-          <h2 id="fh-heading" className="fh-heading">Why businesses choose Booklify</h2>
+          <h2 id="fh-heading" className="fh-heading">Why businesses choose BookLeaf</h2>
           <p className="fh-sub">Simple, focused booking that saves time and gets customers showing up.</p>
         </div>
 

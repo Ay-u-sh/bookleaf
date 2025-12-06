@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
-            <div className="footer-logo">Booklify</div>
+            <div className="footer-logo">BookLeaf</div>
             <p className="footer-tag">
               Fast, simple appointment booking for businesses & individuals.
             </p>
@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="footer-links">
             <h4>Product</h4>
             <a href="/business">Get Started</a>
-            <a href="#">Why BookMate</a>
+            <a href="#">Why BookLeaf</a>
             <a href="#">How It Works</a>
           </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="footer-bottom">
-          © {new Date().getFullYear()} Booklify — All rights reserved.
+          © {new Date().getFullYear()} BookLeaf — All rights reserved.
         </div>
       </div>
     </footer>
