@@ -19,7 +19,7 @@ function App() {
         <Route path  = '/pricing' element = {<Pricing />} />
         <Route path = '/register' element = {<RegistrationPage />} />
         <Route path = '/book/:businessId' element = {<BookingPage />} />
-        <Route path = '/verify-page' element = {<VerificationPage />} />
+        <Route path = '/verify-business' element = {<VerificationPage />} />
         <Route path = '/verify-request' element = {<VerifyRequestPage />} />
         <Route path= "/booking-received" element={<BookingReceivedPage />} />
         <Route path = "*" element = {<PageNotFound />} />

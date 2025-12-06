@@ -49,7 +49,7 @@ async function sendBusinessVerificationEmail(business) {
   const tokenId = await businessTokenRepo.storeToken(tokenHash, business.id, expiresAt);
 
   const base = process.env.PUBLIC_BASE_URL;
-  const verificationLink = `${base}/verify?token=${rawToken}`;
+  const verificationLink = `${base}/verify-business/?token=${rawToken}`;
 
   const mailData = {
     ...business,
