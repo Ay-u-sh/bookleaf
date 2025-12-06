@@ -1,5 +1,5 @@
 require('dotenv').config();
-// backend/index.js
+
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
