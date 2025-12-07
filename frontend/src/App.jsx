@@ -21,7 +21,7 @@ function App() {
         <Route path = '/book/:businessId' element = {<BookingPage />} />
         <Route path = '/verify-business' element = {<VerificationPage />} />
         <Route path = '/verify-request' element = {<VerifyRequestPage />} />
-        <Route path= "/booking-received" element={<BookingReceivedPage />} />
+        <Route path= "/booking-received/:businessId" element={<BookingReceivedPage />} />
         <Route path = "*" element = {<PageNotFound />} />
       </Routes>
     </BrowserRouter>

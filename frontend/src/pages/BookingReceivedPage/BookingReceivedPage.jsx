@@ -1,12 +1,12 @@
 // src/pages/BookingReceivedPage.jsx
 import React from "react";
-import { useNavigate , useLocation } from "react-router-dom";
+import { useNavigate , useParams } from "react-router-dom";
 import "./BookingReceivedPage.css";
 
 export default function BookingReceivedPage() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const businessId = location.state?.businessId;
+  const {businessId} = useParams();
+  console.log(businessId)
   return (
     <main
       className="booking-received-page"

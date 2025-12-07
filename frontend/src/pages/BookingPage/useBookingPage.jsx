@@ -1,11 +1,12 @@
 import { useState ,useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 export function useBookingForm(){
     const { businessId } = useParams();
     const [status,setStatus] = useState('valid');
     const [business,setBusiness] = useState({});
     const [timeSlots,setTimeSlot] = useState([]);
     const [error,setError] = useState('')
+    const navigate = useNavigate();
     useEffect(()=>{
         fetch(`/api/business/${businessId}`)
         .then(res=>res.json())
@@ -77,6 +78,7 @@ export function useBookingForm(){
                 })
                 if(response.ok){
                     setSubmitting(false);
+                    navigate(`/booking-received/${businessId}`);
                     return;
                 }
                 else

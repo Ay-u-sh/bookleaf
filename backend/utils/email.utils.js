@@ -105,10 +105,6 @@ async function sendBookingDetailsMail(mailData){
             ${mailData.message || "No message was provided for this booking."}
           </p>
         </div>
-
-        <p style="margin:10px 0 2px;font-size:12px;color:#6b7280;">
-          You can reply directly to this email to contact the customer.
-        </p>
         <p style="margin:0;font-size:11px;color:#9ca3af;">
           Sent automatically from <strong>BookLeaf</strong>.
         </p>
@@ -199,11 +195,6 @@ const customerHtml = `
         }
 
         <!-- Footer -->
-        <p style="margin:12px 0 4px;font-size:13px;color:#6b7280;line-height:1.6;">
-          If you need to change or cancel your booking, please contact
-          <strong>${mailData.business_name}</strong> directly.
-        </p>
-
         <p style="margin:0;font-size:12px;color:#9ca3af;">
           Powered by <strong>BookLeaf</strong>.
         </p>

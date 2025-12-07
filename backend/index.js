@@ -8,15 +8,17 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+// backend API routes
 app.use('/api', routes);
 
+// serve frontend build
 const frontendDistPath = path.join(__dirname, '../frontend/dist');
 app.use(express.static(frontendDistPath));
 
-app.get((req, res) => {
+// catch-all for React Router (Express 5 syntax)
+app.get('/{*splat}', (req, res) => {
   res.sendFile(path.join(frontendDistPath, 'index.html'));
 });
-
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
