@@ -21,9 +21,9 @@ export default function Navbar() {
           {/* <NavLink to="/pricing" className="nav-link">
             Pricing
           </NavLink> */}
-          <NavLink to="/about" className="nav-link">
+          {/* <NavLink to="/about" className="nav-link">
             About
-          </NavLink>
+          </NavLink> */}
         </nav>
 
         {/* Right: Register + toggle */}
@@ -52,9 +52,9 @@ export default function Navbar() {
           >
             Pricing
           </NavLink> */}
-          <NavLink to="/about" className="nav-link">
+          {/* <NavLink to="/about" className="nav-link">
             About
-          </NavLink>
+          </NavLink> */}
         </nav>
       )}
     </header>
