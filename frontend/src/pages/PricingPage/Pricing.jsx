@@ -8,7 +8,8 @@ export default function PricingPage() {
       <section className="pricing-hero">
         <h1 className="pricing-title">Pricing</h1>
         <p className="pricing-sub">
-          Simple, transparent pricing. No hidden fees — cancel anytime.
+          {/* Simple, transparent pricing. No hidden fees — cancel anytime. */}
+          This is a prototype and free version we will introduce pricing in commerical version
         </p>
       </section>
 
