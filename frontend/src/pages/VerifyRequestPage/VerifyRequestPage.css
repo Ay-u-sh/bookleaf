@@ -1,6 +1,5 @@
 .verify-page{
   min-height: 76vh;
-  background: var(--bg);
   display: flex;
   align-items: flex-start;
   justify-content: center;

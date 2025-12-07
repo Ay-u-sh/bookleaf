@@ -1,15 +1,17 @@
 const nodemailer = require('nodemailer');
-const mailer = nodemailer.createTransport({
-    service:'gmail',
-    host:'smtp.gmail.com',
-    port:587,
-    secure:false,
-    auth:{
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
-    }
-})
-
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
+console.log(resend);
+// const mailer = nodemailer.createTransport({
+//     service:'gmail',
+//     host:'smtp.gmail.com',
+//     port:587,
+//     secure:false,
+//     auth:{
+//         user: process.env.SMTP_USER,
+//         pass: process.env.SMTP_PASS
+//     }
+// }) 
 async function sendBusinessVerificationMail(mailData){
     const mailOptions = {
         from: process.env.SMTP_USER,
@@ -22,7 +24,7 @@ async function sendBusinessVerificationMail(mailData){
         <p>This link expires in ${mailData.expiryHours} hours.</p>`
     }
     try{
-        await mailer.sendMail(mailOptions);
+        const result = await resend.emails.send(mailOptions);
         return true;
     }
     catch(error){
@@ -211,10 +213,9 @@ const customerMail = {
   html: customerHtml,
 };
 
-
     try{
-        await mailer.sendMail(businessMail);
-        await mailer.sendMail(customerMail);
+        await resend.emails.send(businessMail);
+        await resend.emails.send(customerMail);
         return true;
     }   
     catch(error){
@@ -223,5 +224,4 @@ const customerMail = {
     } 
 
 }
-
 module.exports = {sendBusinessVerificationMail,sendBookingDetailsMail}
