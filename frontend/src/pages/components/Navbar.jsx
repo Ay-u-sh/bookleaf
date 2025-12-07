@@ -18,9 +18,9 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <nav className="navbar-links navbar-links-desktop">
-          <NavLink to="/pricing" className="nav-link">
+          {/* <NavLink to="/pricing" className="nav-link">
             Pricing
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/about" className="nav-link">
             About
           </NavLink>
@@ -45,13 +45,13 @@ export default function Navbar() {
       {/* Mobile drawer links */}
       {open && (
         <nav className="navbar-drawer">
-          <NavLink
+          {/* <NavLink
             to="/pricing"
             className="nav-link"
             onClick={closeDrawer}
           >
             Pricing
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/about" className="nav-link">
             About
           </NavLink>

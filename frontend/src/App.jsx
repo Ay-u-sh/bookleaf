@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path = '/' element = {<LandingPage />} />
-        <Route path  = '/pricing' element = {<Pricing />} />
+        {/* <Route path  = '/pricing' element = {<Pricing />} /> */}
         <Route path = '/register' element = {<RegistrationPage />} />
         <Route path = '/book/:businessId' element = {<BookingPage />} />
         <Route path = '/verify-business' element = {<VerificationPage />} />
