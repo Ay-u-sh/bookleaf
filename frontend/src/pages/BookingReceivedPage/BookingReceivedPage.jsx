@@ -6,7 +6,6 @@ import "./BookingReceivedPage.css";
 export default function BookingReceivedPage() {
   const navigate = useNavigate();
   const {businessId} = useParams();
-  console.log(businessId)
   return (
     <main
       className="booking-received-page"
