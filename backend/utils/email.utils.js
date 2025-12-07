@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const { Resend } = require('resend');
 const resend = new Resend(process.env.RESEND_API_KEY);
-console.log(resend);
+
 // const mailer = nodemailer.createTransport({
 //     service:'gmail',
 //     host:'smtp.gmail.com',
@@ -25,9 +25,11 @@ async function sendBusinessVerificationMail(mailData){
     }
     try{
         const result = await resend.emails.send(mailOptions);
+        console.log(result);
         return true;
     }
     catch(error){
+        console.log(error);
         console.error('send-verification error',error);
         return false;
     }
